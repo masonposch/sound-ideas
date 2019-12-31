@@ -53,3 +53,36 @@ html, body {
         #app .hero .bg-image .hero-content .cta a:hover.quote {
           background: #d2232a;
           color: #fff; }
+  @media only screen and (max-width: 767px) {
+    #app .hero .bg-image .hero-content {
+      width: 90%; }
+      #app .hero .bg-image .hero-content .cta a {
+        display: block;
+        margin-bottom: 20px; } }
+#app .services {
+  display: block;
+  height: 250px; }
+  #app .services .service {
+    width: 100%;
+    height: 250px;
+    position: relative; }
+    #app .services .service .service-content {
+      width: 700px;
+      display: block;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      position: absolute;
+      transform: translate(-50%, -50%); }
+      #app .services .service .service-content h2 {
+        color: #fff; }
+  @media (min-width: 768px) {
+    #app .services {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      height: 100vh; }
+      #app .services .service {
+        width: 33%;
+        height: 100vh; } }

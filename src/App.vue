@@ -3,18 +3,21 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Hero msg="Sound Ideas"/>
+    <Services msg="Sound Ideas"/>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Hero from './components/Hero.vue'
+import Services from './components/Services.vue'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld,
-    Hero
+    Hero,
+    Services
   }
 }
 </script>

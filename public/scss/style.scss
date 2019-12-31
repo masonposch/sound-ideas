@@ -1,21 +1,61 @@
 // Breakpoint Variables
-// added 6/17/2014 by HE
-$bp-desktop: 960px;
-$bp-tablet: 959px;
-$bp-tablet-narrow: 768px;
-$bp-mobile: 767px;
-$bp-mobile-wide: 480px;
-$bp-mobile-narrow: 479px;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
 
 
 @mixin breakpoint($point) {
-    @if      $point == large { @media only screen and (min-width: $bp-desktop) { @content; } }
-    @else if $point == mediumup { @media only screen and (min-width: $bp-tablet-narrow) { @content; } }
-    @else if $point == medium { @media only screen and (max-width: $bp-tablet) { @content; } }
-    @else if $point == mediumnarrow { @media only screen and (min-width: $bp-tablet-narrow) and (max-width: $bp-tablet) { @content; } }
-    @else if $point == small { @media only screen and (max-width: $bp-mobile)  { @content; } }
-    @else if $point == smallwide { @media only screen and (min-width: $bp-mobile-wide) and (max-width: $bp-mobile)  { @content; } }
-    @else if $point == smallnarrow { @media only screen and (max-width: $bp-mobile-narrow)  { @content; } }
+
+    @if $point == xsmall { 
+      @media only screen and (max-width: $screen-xs-max)  { @content; } // 767px-
+    }
+    @else if $point == small { 
+      @media (min-width: $screen-sm-min)  { @content; } // 768px+
+    }
+    @else if $point == medium { 
+      @media only screen and (min-width: $screen-md-min) { @content; } // 992px+
+    }
+    @if $point == large { 
+      @media only screen and (min-width: $screen-lg-min) { @content; } // 1200px+
+    }
+    @if $point == notmobile {
+      @media only screen and (min-width: $screen-sm-max) { @content; }
+    }
+    
+}
+
+@mixin breakpoint-only($point) {
+  @if $point == small { 
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { @content; } // 768 - 991px
+  }
+  @if $point == medium { 
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) { @content; } // 992 - 1159px
+  }
+  @if $point == large { 
+    @media (min-width: $screen-lg-min) { @content; } // 1200px+
+  }
+}
+
+@mixin breakpoint-between($point1, $point2) {
+  // xsmall, small, medium
+  @if $point1 == xsmall and $point2 == small {
+    @media only screen and (max-width: $screen-sm-max) {
+      @content;
+    }
+  }
+  @if $point1 == xsmall and $point2 == medium {
+    @media only screen and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+  @if $point1 == small and $point2 == medium {
+    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
 }
 
 
@@ -104,5 +144,55 @@ html, body {
                 }
             }
         }
+
+        @include breakpoint(xsmall) {
+            .bg-image {
+                .hero-content {
+                    width: 90%;
+                    .cta {
+                        a {
+                            display: block;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
+
+    .services {
+        display: block;
+        height: 250px;
+        .service {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            .service-content {
+                width: 700px;
+                display: block;
+                top: 50%;
+                left: 50%;
+                text-align: center;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                h2 {
+                    color: #fff;
+                }
+            }
+        }
+        @include breakpoint(small) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            height: 100vh;
+            .service {
+                width: 33%;
+                height: 100vh;
+            } 
+        }
+    }
+
 }
