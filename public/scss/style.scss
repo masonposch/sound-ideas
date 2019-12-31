@@ -1,3 +1,24 @@
+// Breakpoint Variables
+// added 6/17/2014 by HE
+$bp-desktop: 960px;
+$bp-tablet: 959px;
+$bp-tablet-narrow: 768px;
+$bp-mobile: 767px;
+$bp-mobile-wide: 480px;
+$bp-mobile-narrow: 479px;
+
+
+@mixin breakpoint($point) {
+    @if      $point == large { @media only screen and (min-width: $bp-desktop) { @content; } }
+    @else if $point == mediumup { @media only screen and (min-width: $bp-tablet-narrow) { @content; } }
+    @else if $point == medium { @media only screen and (max-width: $bp-tablet) { @content; } }
+    @else if $point == mediumnarrow { @media only screen and (min-width: $bp-tablet-narrow) and (max-width: $bp-tablet) { @content; } }
+    @else if $point == small { @media only screen and (max-width: $bp-mobile)  { @content; } }
+    @else if $point == smallwide { @media only screen and (min-width: $bp-mobile-wide) and (max-width: $bp-mobile)  { @content; } }
+    @else if $point == smallnarrow { @media only screen and (max-width: $bp-mobile-narrow)  { @content; } }
+}
+
+
 html, body {
     overflow-x: hidden;
 }
@@ -28,10 +49,10 @@ html, body {
                 right: 0;
                 top: 0;
                 bottom: 0;
-                background: rgba(0,0,0,.5);
+                background: rgba(0,0,0,.6);
             }
             .hero-content {
-                width: 500px;
+                width: 700px;
                 display: block;
                 top: 50%;
                 left: 50%;
@@ -40,6 +61,46 @@ html, body {
                 transform: translate(-50%, -50%);
                 h1 {
                     color: #fff;
+                    display: none;
+                }
+                img {
+                    width: 100%;
+                }
+                .cta {
+                    a {
+                        text-decoration: none;
+                        padding: 10px 50px;
+                        transition: 0.2s;
+                        border-radius: 10px;
+                        margin: 0 20px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        z-index: 9;
+                        &.product {
+                            background: #d2232a;
+                            color: #fff;
+                            border: 2px solid #d2232a;
+                        }
+                        &.quote {
+                            background: #fff;
+                            color:  #d2232a;
+                            border: 2px solid #fff;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            -webkit-box-shadow: 0 5px 15px -4px #080708;
+                            box-shadow: 0 5px 15px -4px #080708;
+                            &.product {
+                                background: #fff;
+                                color:  #d2232a;
+                            }
+                            &.quote {
+                                background: #d2232a;
+                                color: #fff;
+                            }
+                        }
+                    }
                 }
             }
         }

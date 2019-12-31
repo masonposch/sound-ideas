@@ -11,9 +11,9 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); }
+    background: rgba(0, 0, 0, 0.6); }
   #app .hero .bg-image .hero-content {
-    width: 500px;
+    width: 700px;
     display: block;
     top: 50%;
     left: 50%;
@@ -21,4 +21,35 @@ html, body {
     position: absolute;
     transform: translate(-50%, -50%); }
     #app .hero .bg-image .hero-content h1 {
-      color: #fff; }
+      color: #fff;
+      display: none; }
+    #app .hero .bg-image .hero-content img {
+      width: 100%; }
+    #app .hero .bg-image .hero-content .cta a {
+      text-decoration: none;
+      padding: 10px 50px;
+      transition: 0.2s;
+      border-radius: 10px;
+      margin: 0 20px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 9; }
+      #app .hero .bg-image .hero-content .cta a.product {
+        background: #d2232a;
+        color: #fff;
+        border: 2px solid #d2232a; }
+      #app .hero .bg-image .hero-content .cta a.quote {
+        background: #fff;
+        color: #d2232a;
+        border: 2px solid #fff; }
+      #app .hero .bg-image .hero-content .cta a:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 0 5px 15px -4px #080708;
+        box-shadow: 0 5px 15px -4px #080708; }
+        #app .hero .bg-image .hero-content .cta a:hover.product {
+          background: #fff;
+          color: #d2232a; }
+        #app .hero .bg-image .hero-content .cta a:hover.quote {
+          background: #d2232a;
+          color: #fff; }
