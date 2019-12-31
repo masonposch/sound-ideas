@@ -1,6 +1,37 @@
 html, body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background: #fcfbf9; }
 
+#app a.button {
+  text-decoration: none;
+  padding: 10px 50px;
+  transition: 0.2s;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 9; }
+  #app a.button.red {
+    background: #d2232a;
+    color: #fff;
+    border: 2px solid #d2232a; }
+  #app a.button.white {
+    background: #fff;
+    color: #d2232a;
+    border: 2px solid #fff; }
+  #app a.button:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 5px 15px -4px #080708;
+    box-shadow: 0 5px 15px -4px #080708; }
+    #app a.button:hover.red {
+      background: #fff;
+      color: #d2232a; }
+    #app a.button:hover.white {
+      background: #d2232a;
+      color: #fff; }
+#app a.text-link {
+  text-decoration: none;
+  transition: 0.2s; }
 #app .hero {
   height: 100vh;
   position: relative; }
@@ -26,48 +57,49 @@ html, body {
     #app .hero .bg-image .hero-content img {
       width: 100%; }
     #app .hero .bg-image .hero-content .cta a {
-      text-decoration: none;
-      padding: 10px 50px;
-      transition: 0.2s;
-      border-radius: 10px;
-      margin: 0 20px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      z-index: 9; }
-      #app .hero .bg-image .hero-content .cta a.product {
-        background: #d2232a;
-        color: #fff;
-        border: 2px solid #d2232a; }
-      #app .hero .bg-image .hero-content .cta a.quote {
-        background: #fff;
-        color: #d2232a;
-        border: 2px solid #fff; }
-      #app .hero .bg-image .hero-content .cta a:hover {
-        cursor: pointer;
-        -webkit-box-shadow: 0 5px 15px -4px #080708;
-        box-shadow: 0 5px 15px -4px #080708; }
-        #app .hero .bg-image .hero-content .cta a:hover.product {
-          background: #fff;
-          color: #d2232a; }
-        #app .hero .bg-image .hero-content .cta a:hover.quote {
-          background: #d2232a;
-          color: #fff; }
+      margin: 0 20px; }
   @media only screen and (max-width: 767px) {
     #app .hero .bg-image .hero-content {
       width: 90%; }
       #app .hero .bg-image .hero-content .cta a {
         display: block;
         margin-bottom: 20px; } }
+#app .about .about-content {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  padding: 50px 0; }
+  #app .about .about-content h2 {
+    color: #d2232a;
+    margin: 0 0 10px; }
+  #app .about .about-content p {
+    font-size: 16px; }
+@media (min-width: 768px) {
+  #app .about {
+    display: block;
+    margin: 0 auto;
+    width: 700px; } }
 #app .services {
   display: block;
-  height: 250px; }
+  position: relative; }
   #app .services .service {
+    display: block;
     width: 100%;
-    height: 250px;
-    position: relative; }
+    height: 400px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden; }
+    #app .services .service:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      transition: 0.1s; }
     #app .services .service .service-content {
-      width: 700px;
+      width: 300px;
       display: block;
       top: 50%;
       left: 50%;
@@ -75,14 +107,80 @@ html, body {
       position: absolute;
       transform: translate(-50%, -50%); }
       #app .services .service .service-content h2 {
-        color: #fff; }
+        color: #fff;
+        text-shadow: 1px 1px 10px black;
+        font-size: 35px;
+        font-weight: 600;
+        margin: 0 0 10px; }
+      #app .services .service .service-content .additional {
+        text-align: center;
+        border-top: 1px solid #fff;
+        padding: 20px 0 0; }
+        #app .services .service .service-content .additional p, #app .services .service .service-content .additional ul li {
+          color: #fff; }
+        #app .services .service .service-content .additional ul {
+          padding-inline-start: 0;
+          padding-left: 20px;
+          text-align: left; }
+        #app .services .service .service-content .additional .cta {
+          margin-top: 40px; }
+    #app .services .service:hover:before {
+      background: rgba(0, 0, 0, 0.8);
+      transition: 0; }
+    #app .services .service.contact .service-content .additional .cta {
+      margin-top: 20px; }
+      #app .services .service.contact .service-content .additional .cta a.text-link {
+        color: #fff;
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 600; }
+        #app .services .service.contact .service-content .additional .cta a.text-link i {
+          margin-right: 5px; }
+        #app .services .service.contact .service-content .additional .cta a.text-link:hover {
+          color: #d2232a; }
   @media (min-width: 768px) {
     #app .services {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: flex-start;
+      justify-content: space-between;
       height: 100vh; }
       #app .services .service {
         width: 33%;
-        height: 100vh; } }
+        max-width: 33%;
+        height: 100vh;
+        max-height: 100vh; }
+        #app .services .service:before {
+          background: rgba(0, 0, 0, 0.6); }
+        #app .services .service .service-content {
+          position: relative;
+          width: 250px;
+          max-width: 90%; }
+          #app .services .service .service-content .additional {
+            text-align: left;
+            display: none; }
+        #app .services .service:hover .service-content h2 {
+          text-align: left; }
+        #app .services .service:hover .service-content .additional {
+          display: block; } }
+#app .footer {
+  position: relative;
+  display: block;
+  padding: 40px 40px 60px; }
+  #app .footer .footer-content a {
+    color: #2c3e50; }
+    #app .footer .footer-content a:hover {
+      color: #d2232a; }
+  #app .footer .footer-content .location-contact p {
+    display: block;
+    margin-bottom: 10px; }
+  @media only screen and (min-width: 992px) {
+    #app .footer .footer-content .legal {
+      float: left; }
+    #app .footer .footer-content .location-contact {
+      float: right; }
+      #app .footer .footer-content .location-contact p {
+        display: inline-block;
+        margin-left: 30px;
+        margin-bottom: 0; } }

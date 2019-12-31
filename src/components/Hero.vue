@@ -5,8 +5,8 @@
             <h1>{{ msg }}</h1>
             <img src="./../assets/sound-ideas-logo-hero.png" alt="Sound Ideas Advertising and Promotion Independence KS logo"/>
             <div class="cta">
-              <a href="https://www.sipromo.com/" target="_blank" class="product button">Order Products</a>
-              <a href="mailto:orders@sipromo.com/" class="quote button">Get a Quote</a>
+              <a href="https://www.sipromo.com/" target="_blank" class="red button">Order Products</a>
+              <a href="mailto:orders@sipromo.com/" class="white button">Get a Quote</a>
             </div>
         </div>
       </div>
